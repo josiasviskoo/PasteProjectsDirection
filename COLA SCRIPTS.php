@@ -1,7 +1,7 @@
 
 :: CONEXAO
 <?
-$conexao = new mysqli("localhost", "viskooco_vk8", "NJ2jj7df", "viskooco_vk8");
+$conexao = new mysqli("localhost", "viskooco_vk8", "xxxxxxxxx", "viskooco_vk8");
 if ($conexao->connect_error) { die('FALHOU : ('. $conexao->connect_errno .') '. $conexao->connect_error); };
 ?>
 
