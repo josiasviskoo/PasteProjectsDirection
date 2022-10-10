@@ -1145,6 +1145,56 @@ function carregarpagina(alvo,pagina) {
 <div id="segunda">
   <p>Placeholding text</p>
 </div>
+	
+
+	ARQUIVO DE SALVAMENTO AJAX:
+<?php include("sistema/funcoes_sistema.php"); ?>
+<?php include("sistema/configuracoes.php"); ?>
+
+<style> .remover{ display: none; }; </style>
+<span id="loading" class="spinner-border spinner-border-sm me-2" role="status"></span>
+
+<?php
+$anotacao_pessoal_1 = $_POST["_anotacao_pessoal_1"];
+
+
+InserirMetaTag($emaillogado, "_anotacao_pessoal_1", $anotacao_pessoal_1);
+
+?>
+
+<script>
+  UIkit.notification({message: 'Anotações salvas!'});
+  var element = document.getElementById("loading");
+
+  setTimeout(() => {
+      element.classList.add("remover");
+   }, 1000);
+</script>
+
+
+ARQUIVO DE FORMULÁRIO AJAX:
+O javascript abaixo ajusta o submit do form para uma DIV que chama o script de salvamento acima
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#formanotacoes").on("submit", function(event){
+        event.preventDefault();
+
+        var formValues= $(this).serialize();
+
+        $.post("anotacao_pessoal_salvar.php", formValues, function(data){
+            // Display the returned data in browser
+            $("#result").html(data);
+        });
+    });
+});
+</script>
+	
+	
+	
+	
+	
 
 
 <br />Ocultando erro do PHP
