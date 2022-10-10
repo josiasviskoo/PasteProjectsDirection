@@ -5,7 +5,6 @@ $conexao = new mysqli("localhost", "viskooco_vk8", "xxxxxxxxx", "viskooco_vk8");
 if ($conexao->connect_error) { die('FALHOU : ('. $conexao->connect_errno .') '. $conexao->connect_error); };
 ?>
 
-
 ::WHILE
 <?
 include("../config/conexao/conectar.php");
